@@ -12,6 +12,6 @@ fn index() -> &'static str {
 fn rocket() -> _ {
     rocket::build().mount("/", routes![index])
         .attach(AdHoc::on_response("Add Request-OTR header", |_req, response| Box::pin(async move {
-            response.set_header(Header::new("Request-OTR", "1"));
+            response.set_header(Header::new("Request-OTR", "?1"));
         })))
 }
